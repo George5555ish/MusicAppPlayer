@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="styles.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY MUSIC PLAYER</title>
+</head>
+<body>
+  <div class="player-container" id="player-container">
+    <div class="player" id="player">
+
+      <div class="song-stuff" id="song-stuff">
+        <div class="img-container" id="img-container">
+          <img alt="dedoyin11" class="cover" id="cover" height="600px">
+        </div>
+  
+        <div class="song-data" id="song-data">
+
+             
+          <img  alt="" id="spinner" class="spinner">
+          
+          <div class="song-tochange">
+            <h1 class="song-title" id="song-title"> 
+            <!-- Generated in the Javascript -->
+            </h1>
+          <h2 class="currentSongAuthor" id="currentSongAuthor">
+                 <!-- Generated in the Javascript -->
+          </h2>
+          </div>
+          <div class="button-bar button-bar--primary">
+
+            <button class="btn btn--more-controls" id="more-controls">
+              <span class="fa fa-cogs"></span>
+              <span class="sr-only">More options</span>
+            </button>
+  
+            <button class="btn" id="backward-button">
+              <span class="fa fa-backward"></span>
+              <span class="sr-only">Backward</span>
+            </button>
+  
+          
+  
+         
+  
+              <div class="play-btn-wrap">
+                <button class="btn btn--play" id="play-button">
+                  <span class="fa fa-play major" id="play-button-icon"></span>
+                  <span class="sr-only">Play</span>
+                </button>
+  
+                    <!-- 
+                If you want to add pause button -->
+                <!-- <button class="btn btn--play btn--pause" id="pause-button">
+                  <span class="fa fa-pause"></span>
+                  <span class="sr-only">Pause</span>
+                </button> -->
+              </div>
+  
+        
+  
+          
+  
+            <button class="btn" id="forward-button">
+              <span class="fa fa-forward"></span>
+              <span class="sr-only">Forward</span>
+            </button>
+  
+            <button class="btn" id="stop-button">
+              <span class="fa fa-stop"></span>
+              <span class="sr-only">Stop</span>
+            </button>
+  
+          </div>
+
+          <div class="progress-container" id="progress-container">
+            <div class="progress" id="progress"></div>
+          </div>
+      
+        </div>
+
+        
+
+      </div>
+     
+
+      <audio id="audio"></audio>
+
+<!--           
+                To add volume -->
+          <!-- <div class="button-bar button-bar--secondary">
+            <div class="btn input-range-wrapper">
+              <i class="fa fa-volume fa-volume-up"></i><input class="input-range-volume" type="range" id="volumeLevel" max="1" min="0" step="0.1"/>
+            </div>
+
+            <div class="btn input-range-wrapper">
+              <i class="fa fa-music"></i><input class="input-range" value="0" type="range" id="songTimeRange" max="1" min="0" step="0.01"/>
+            </div>
+          </div> -->
+
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

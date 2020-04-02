@@ -1,0 +1,304 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: url('Track\ 4.jpg');
+  background-size: contain;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.player-container{
+  background-color: #e1e1e1;
+  border-radius: 15px;
+  box-shadow: 0px 9px 10px 0 yellow;
+  width: 120vh;
+
+}
+
+/* Classes to change background Color based on outfit Color */
+.player-container.change0{
+  box-shadow: 0px 9px 10px 0 yellow;
+}
+
+.player-container.change0 .song-data{
+  background-color: yellowgreen;
+}
+
+.player-container.change1{
+  box-shadow: 0px 9px 10px 0 grey;
+}
+
+.player-container.change1 .song-data{
+  background-color: red;
+}
+
+.player-container.change2{
+  box-shadow: 0px 9px 10px 0 purple;
+}
+
+.player-container.change2 .song-data{
+  background-color: purple;
+}
+
+.player-container.change3{
+  box-shadow: 0px 9px 10px 0 black;
+}
+
+.player-container.change3 .song-data{
+  background-color: red;
+}
+
+.player-container.change4{
+  box-shadow: 0px 9px 10px 0 whitesmoke;
+}
+
+.player-container.change4 .song-data{
+  background-color: paleturquoise;
+}
+
+.player-container.change5{
+  box-shadow: 0px 9px 10px 0 yellow;
+}
+
+.player-container.change5 .song-data{
+  background-color: white;
+}
+
+
+
+
+
+
+.player{
+  width: inherit;
+ 
+}
+
+.song-stuff{
+display: flex;
+flex-direction: row;
+  
+  width: inherit;
+}
+
+.song-data{
+  /* svg is for player background */
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='12' viewBox='0 0 20 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 12c0-.622-.095-1.221-.27-1.785A5.982 5.982 0 0 0 10 12c1.67 0 3.182-.683 4.27-1.785A5.998 5.998 0 0 0 14 12h2a4 4 0 0 1 4-4V6c-1.67 0-3.182.683-4.27 1.785C15.905 7.22 16 6.622 16 6c0-.622-.095-1.221-.27-1.785A5.982 5.982 0 0 0 20 6V4a4 4 0 0 1-4-4h-2c0 .622.095 1.221.27 1.785A5.982 5.982 0 0 0 10 0C8.33 0 6.818.683 5.73 1.785 5.905 1.22 6 .622 6 0H4a4 4 0 0 1-4 4v2c1.67 0 3.182.683 4.27 1.785A5.998 5.998 0 0 1 4 6c0-.622.095-1.221.27-1.785A5.982 5.982 0 0 1 0 6v2a4 4 0 0 1 4 4h2zm-4 0a2 2 0 0 0-2-2v2h2zm16 0a2 2 0 0 1 2-2v2h-2zM0 2a2 2 0 0 0 2-2H0v2zm20 0a2 2 0 0 1-2-2h2v2zm-10 8a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' fill='%2300000' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-color: yellowgreen;
+  width: inherit;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px 15px 15px 0px;
+
+}
+
+.song-tochange{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  /* image opacity to change */
+  transition: opacity 2s ease-in-out;
+
+  /* width is zero until the play button is clicked 
+  and play class is created
+  (check next class) */
+  width: 0;
+  height: 0;
+
+}
+
+.player-container.play .song-tochange{
+  opacity: 1;
+  width: auto;
+  height: auto;
+
+}
+
+
+
+.song-tochange > .song-title{
+  color: blue;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Helvetica, sans-serif;
+}
+
+.song-tochange > .currentSongAuthor{
+  font-size: 18px;
+  color: black;
+}
+
+
+
+.img-container{
+  position: relative;
+  height: 500px;
+}
+
+.img-container img{
+  border-radius: 15px 0 0 15px;
+  width: 600px;
+  height: inherit;
+/* 
+  animation to make it rotate */
+  animation: opacity 4s linear infinite;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+  
+}
+
+.spinner{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 4s linear infinite;
+  animation-play-state: paused;
+}
+
+/* 
+  Animation conditions made in the Javascript*/
+.player-container.play .img-container img{
+  animation-play-state: running;
+}
+
+.player-container.play .spinner{
+  animation-play-state: running;
+}
+
+/* 
+the animations */
+
+@keyframes opacity {
+ 0%{
+   opacity: 1;
+ }
+
+ 50%{
+   opacity: 0;
+ }
+
+ 100%{
+   opacity: 1;
+ }
+
+}
+
+@keyframes rotate {
+  from{
+    transofrm: rotate(0deg);
+
+  }
+
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+/* buttons */
+
+.button-bar.button-bar--primary{
+  display: flex;
+  padding: 15px;
+  transition: margin 1s ease;
+}
+
+.btn{
+   position: relative;
+  padding: 5px 29.5px;
+  cursor: pointer;
+  background: transparent;
+  outline: transparent;
+
+  /* Other color choices */
+  /* background: linear-gradient(to bottom right, red, yellow); */
+  /* background: linear-gradient(to bottom, #2A2A2A 0%,#1A1A1A 100%); */
+  border: 0;
+  /* border-top: 1px solid #0F0F0F;
+  border-left: 1px solid #0F0F0F;
+  box-shadow: 0 2px 3px #000; */
+  color: white;
+  margin: 0 3px;
+  cursor: pointer;
+ 
+}
+
+.btn:focus{
+outline: 0;
+}
+
+.btn.btn--play{
+  font-size: 30px;
+  border-radius: 50%;
+}
+
+.player-container.play .progress-container{
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0;
+  height: 5px;
+  width: 300px;
+
+}
+
+.progress{
+  background: linear-gradient(to bottom right, red, yellow);
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+
+/* 
+Media query */
+
+@media (max-width: 848px ){
+
+  .player-container{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 0
+  }
+
+  .song-stuff{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img-container{
+    width: inherit;
+  }
+
+  .img-container img{
+    width: inherit;
+   
+  }
+ 
+}
